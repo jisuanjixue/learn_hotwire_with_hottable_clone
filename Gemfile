@@ -42,6 +42,12 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 
+# Ransack will help you easily add searching to your Rails application, without any additional dependencies.[https://github.com/activerecord-hackery/ransack]
+gem "ransack", "~> 3.2" 
+
+# the best pagination ruby gem [https://github.com/ddnexus/pagy]
+gem "pagy", "~> 5.10"
+
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
