@@ -1,4 +1,5 @@
 module.exports = {
+  mode: 'jit',
   content: [
     './app/views/**/*.{slim,erb,jbuilder,turbo_stream,js}',
     './app/helpers/**/*.rb',

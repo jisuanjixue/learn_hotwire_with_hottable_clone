@@ -1,3 +1,53 @@
-<h1>Books#index</h1>
-<button data-toggle-theme="dark,light" data-act-class="ACTIVECLASS"></button>
-<%== pagy_nav(@pagy) %>
+<div class="mockup-window border border-base-300">
+    <div class="flex justify-center px-4 py-16 border-t border-base-300">
+        <!-- <h1>Books#index</h1> -->
+        
+        <div class="overflow-x-auto grow flex items-start -mt-px" role="region" aria-labelledby="booksTableCaption"
+            tabindex="0">
+            <table class="table w-full table-normal">
+                <caption id="booksTableCaption" class="h-0 overflow-hidden">
+                    <i class="bi-table" aria-hidden="true"></i>
+                    Main View
+                </caption>
+
+                <!-- head -->
+                <thead>
+                    <tr>
+                        <% Book.ransortable_attributes.each do |attribute_name| %>
+                        <th>
+                            <%= Book.human_attribute_name(attribute_name) %>
+                        </th>
+                        <% end %>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @records.each do |record| %>
+                    <tr>
+                        <% Book.ransortable_attributes.each do |attribute_name| %>
+                        <td>
+                            <%= record.public_send(attribute_name) %>
+                        </td>
+                        <% end %>
+                    </tr>
+                    <% end %>
+                </tbody>
+                <tfoot>
+                    <tr>
+                      <td colspan="<%= Book.ransortable_attributes.size %>">
+                        <div class="flex items-center justify-between p-2">
+                          <div class="flex items-center justify-center">
+                            <%# Note the double equals sign "==" which marks the output as trusted and html safe: %>
+                            <%== pagy_nav(@pagy) %>
+                          </div>
+                          <div class="">
+                            <%# Note the double equals sign "==" which marks the output as trusted and html safe: %>
+                            <%== pagy_info(@pagy) %>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </tfoot>
+            </table>
+        </div>
+    </div>
+</div>
