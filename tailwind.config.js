@@ -11,7 +11,7 @@ module.exports = {
       overflow: ['hover']
     }
   },
-  plugins: [require("@tailwindcss/typography"), require("daisyui")],
+  plugins: [require('@tailwindcss/forms'),require("@tailwindcss/typography"), require("daisyui")],
   daisyui: {
     styled: true,
     themes: true,
