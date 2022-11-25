@@ -1,11 +1,16 @@
 module.exports = {
   content: [
-    './app/views/**/*.html.erb',
+    './app/views/**/*.{slim,erb,jbuilder,turbo_stream,js}',
     './app/helpers/**/*.rb',
     './app/assets/stylesheets/**/*.css',
     './app/javascript/**/*.js'
   ],
-  plugins: [require("daisyui")],
+  variants: {
+    extend: {
+      overflow: ['hover']
+    }
+  },
+  plugins: [require("@tailwindcss/typography"), require("daisyui")],
   daisyui: {
     styled: true,
     themes: true,
@@ -15,5 +20,17 @@ module.exports = {
     rtl: false,
     prefix: "",
     darkTheme: "dark",
+    themes: ["light", "dark"]
   },
+  theme: {
+    listStyleType: {
+      none: 'none',
+      disc: 'disc',
+      decimal: 'decimal',
+      square: 'square'
+    }
+  },
+  daisyui: {
+    logs: false
+  }
 }
