@@ -3,6 +3,9 @@
 @tailwind utilities;
 @tailwind variants;
 
+.marker\:hidden::marker { content: "" }
+.marker\:hidden::-webkit-details-marker { display: none }
+
 .pagy-nav,
 .pagy-nav-js {
   @apply flex space-x-2;

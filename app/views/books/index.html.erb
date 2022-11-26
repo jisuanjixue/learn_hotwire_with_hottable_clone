@@ -1,54 +1,121 @@
 <div class="mockup-window border border-base-300">
+  <!-- <select class="select w-full max-w-xs">
+        <option disabled selected>Pick your favorite Simpson</option>
+        <option>Homer</option>
+        <option>Marge</option>
+        <option>Bart</option>
+        <option>Lisa</option>
+        <option>Maggie</option>
+      </select> -->
   <%= search_form_for(
-    @search,
-    url: search_books_path,
-    html: { method: :post, autocomplete: :off, autocapitalize: :none, class: "", data: { controller: "search" } }
-  ) do |f| %>
-      <details class="relative inline-block text-left z-20" id="detailsSort">
-        <summary class="marker:hidden cursor-pointer">
-          <div
-            class="inline-flex items-center justify-center gap-2 w-full rounded-md border border-gray-300 bg-white px-4 py-2 font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:ring-offset-gray-100 <%= 'bg-orange-300 border-orange-500' if f.object.sorts.any? %>"
-            id="detailsSortButton" aria-expanded="true" aria-haspopup="true">
-            <i class="bi-arrow-down-up text-xl" aria-hidden="true"></i>
-            <% if f.object.sorts.any? %>
-            <span>Sorted by <%= pluralize(f.object.sorts.count, 'field') %></span>
-            <% else %>
-            <span>Sort</span>
-            <% end %>
-            <i class="bi-chevron-down text-gray-500 group-hover:text-gray-900" aria-hidden="true"></i>
-          </div>
-        </summary>
-        <div
-          class="absolute left-0 z-10 mt-1 w-96 origin-top-right rounded-md bg-white border-2 shadow-lg drop-shadow-lg focus:outline-none"
-          role="menu" aria-orientation="vertical" aria-labelledby="detailsSortButton" tabindex="-1">
-          <h3 class="border-b mb-2 pb-1 font-bold px-2 py-1">Sort by</h3>
-  
-          <%= tag.fieldset class: "p-2 pt-0 space-y-2" do %>
-          <% sort_object = f.object.sorts.any? ? f.object.sorts : f.object.build_sort %>
-          <%= f.sort_fields(sort_object) do |s| %>
-          <div class="fields flex items-center justify-between space-x-2" data-object-name="<%= s.object_name %>">
-            <%= s.sort_select({}, class: "text-sm rounded p-1.5 pr-6 border-gray-400 bg-[right_0.125rem_center]") %>
-  
-            <%= tag.button %>
-          </div>
-  
-          <% end %>
-          <%#= button_to_add_fields(f, :sort) %>
-          <% end %>
-  
-          <div class="flex items-center justify-end gap-2 py-2 px-4 bg-gray-200">
-            <button type="button"
-              class="inline-flex items-center rounded-md border border-transparent bg-gray-200 px-2.5 py-1.5 text-base font-medium text-gray-900 hover:bg-gray-300"
-              onclick="detailsSort.removeAttribute('open')">
-              Cancel
-            </button>
-            <%= f.submit "Sort", name: "sort", class: "cursor-pointer inline-flex items-center rounded-md border border-transparent bg-blue-500 px-2.5 py-1.5 text-base font-medium text-white shadow-sm hover:bg-blue-400" %>
-          </div>
-        </div>
-      </details>
-  
-      <%= f.submit class: "rounded-md border border-transparent bg-blue-500 px-2.5 py-1.5 font-medium text-gray-900" %>
+        @search,
+        url: search_books_path,
+        html: { method: :post, autocomplete: :off, autocapitalize: :none, class: "", data: { controller: "search" } }
+      ) do |f| %>
+  <div class="dropdown" id="detailsSort">
+    <label tabindex="0" class="btn btn-outline rounded-btn">
+      <i class="bi-arrow-down-up text-xl" aria-hidden="true"></i>
+      <% if f.object.sorts.any? %>
+      <span>Sorted by <%= pluralize(f.object.sorts.count, 'field') %></span>
+      <% else %>
+      <span>Sort</span>
       <% end %>
+      <i class="bi-chevron-down text-gray-500 group-hover:text-gray-900" aria-hidden="true"></i>
+    </label>
+    <div tabindex="0"
+      class="dropdown-content card card-compact w-64 p-2 border-gray-300 bg-white  text-gray-700 shadow-sm hover:bg-gray-50 focus:ring-offset-gray-100">
+      <div
+        class="card-body absolute left-0 z-10 mt-1 min-w-96 origin-top-right rounded-md bg-white border-2 shadow-lg drop-shadow-lg focus:outline-none"
+        role="menu" aria-orientation="vertical" aria-labelledby="detailsSortButton" tabindex="-1">
+        <h3 class="card-title border-b mb-2 pb-1 font-bold px-2 py-1">Card title!</h3>
+        <%= tag.fieldset class: "p-2 pt-0 space-y-2" do %>
+        <% sort_object = f.object.sorts.any? ? f.object.sorts : f.object.build_sort %>
+        <%= f.sort_fields(sort_object) do |s| %>
+        <div class="fields flex items-center justify-between space-x-2" data-object-name="<%= s.object_name %>">
+          <%= s.sort_select({}, class: "text-sm rounded p-1.5 pr-6 border-gray-400 bg-[right_0.125rem_center]") %>
+        </div>
+        <% end %>
+        <% end %>
+        <div class="flex items-center justify-end gap-2 py-2 px-4 bg-gray-200">
+          <button type="button"
+            class="inline-flex items-center rounded-md border border-transparent bg-gray-200 px-2.5 py-1.5 text-base font-medium text-gray-900 hover:bg-gray-300"
+            onclick="detailsSort.removeAttribute('open')">
+            Cancel
+          </button>
+          <%= f.submit "Sort", name: "sort", class: "cursor-pointer inline-flex items-center rounded-md border border-transparent bg-blue-500 px-2.5 py-1.5 text-base font-medium text-white shadow-sm hover:bg-blue-400" %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <details class="relative inline-block text-left z-20" id="detailsForm">
+    <summary class="marker:hidden cursor-pointer">
+      <div
+        class="inline-flex items-center justify-center gap-2 w-full rounded-md border border-gray-300 bg-white px-4 py-2 font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:ring-offset-gray-100 <%= 'bg-green-300 border-green-500' if f.object.condition_attributes.any? %>"
+        id="detailsFilterButton" aria-expanded="true" aria-haspopup="true">
+        <i class="bi-filter text-xl" aria-hidden="true"></i>
+        <% if f.object.condition_attributes.any? %>
+        <span>Filtered by <%= f.object.condition_attributes.map {|a| Book.human_attribute_name(a)}.join(', ') %></span>
+        <% else %>
+        <span>Filter</span>
+        <% end %>
+        <i class="bi-chevron-down text-gray-500 group-hover:text-gray-900" aria-hidden="true"></i>
+      </div>
+    </summary>
+    <div
+      class="absolute left-0 z-10 mt-1 min-w-96 origin-top-right rounded-md bg-white border-2 shadow-lg drop-shadow-lg focus:outline-none"
+      role="menu" aria-orientation="vertical" aria-labelledby="detailsFilterButton" tabindex="-1">
+      <fieldset class="bg-white rounded space-y-2 text-sm">
+        <legend class="border-b w-full font-bold p-2 whitespace-nowrap">
+          In this view, show records where
+          <%= f.combinator_select({}, class: "rounded py-1") %>
+          of the following are true&hellip;
+        </legend>
+        <div class="p-2 space-y-2">
+          <% condition_object = f.object.conditions.any? ? f.object.conditions : f.object.build_condition %>
+          <%= f.condition_fields(condition_object) do |c| %>
+          <%= tag.fieldset class: "fields condition flex items-center gap-2", 'data-object-name': c.object_name do %>
+          <legend></legend>
+
+          <div class="flex flex-nowrap items-start gap-2">
+            <%= c.attribute_fields do |a| %>
+            <span class="fields" data-object-name="<%= a.object_name %>">
+              <%= a.attribute_select({}, class: "text-sm border-gray-400 rounded p-1.5 pr-6 bg-[right_0.125rem_center]") %>
+            </span>
+            <% end %>
+
+            <span class="fields predicate">
+              <%= c.predicate_select({}, class: "text-sm rounded p-1.5 pr-6 border-gray-400 bg-[right_0.125rem_center]") %>
+            </span>
+
+            <span class="flex flex-col items-start gap-2">
+              <%= c.value_fields do |v| %>
+              <span class="fields flex border border-gray-400 rounded overflow-hidden"
+                data-object-name="<%= v.object_name %>">
+                <%= v.text_field(:value, class: "text-sm p-1.5 border-0") %>
+              </span>
+              <% end %>
+            </span>
+          </div>
+          <% end %>
+          <% end %>
+        </div>
+      </fieldset>
+
+      <div class="flex items-center justify-end gap-2 py-2 px-4 bg-gray-200">
+        <button type="button"
+          class="inline-flex items-center rounded-md border border-transparent bg-gray-200 px-2.5 py-1.5 text-base font-medium text-gray-900 hover:bg-gray-300"
+          onclick="detailsSort.removeAttribute('open')">
+          Cancel
+        </button>
+        <%= f.submit "Filter", name: "filter", class: "cursor-pointer inline-flex items-center rounded-md border border-transparent bg-blue-500 px-2.5 py-1.5 text-base font-medium text-white shadow-sm hover:bg-blue-400" %>
+      </div>
+    </div>
+  </details>
+
+  <%= f.submit class: "cursor-pointer inline-flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:w-auto" %>
+  <% end %>
+
   <div class="flex justify-center px-4 py-16 border-t border-base-300">
     <!-- <h1>Books#index</h1> -->
     <div class="overflow-x-auto grow flex items-start -mt-px" role="region" aria-labelledby="booksTableCaption"
@@ -68,10 +135,9 @@
           </th>
           <tr class="divide-x divide-gray-200">
             <% Book.ransortable_attributes.each do |attribute_name| %>
-            <th scope="col"
-              class="sticky top-0 z-10 bg-opacity-75 backdrop-blur backdrop-filter whitespace-nowrap px-2 py-3.5 text-left text-sm font-semibold text-gray-900">
-              <%= Book.human_attribute_name(attribute_name) %>
-            </th>
+              <%= tag.th(scope: :col, class: class_names("sticky top-0 z-10 bg-opacity-75 backdrop-blur backdrop-filter whitespace-nowrap px-2 py-3.5 text-left text-sm font-semibold text-gray-900", 'bg-orange-300': @search.sort_attributes.include?(attribute_name.to_s), 'bg-green-300': @search.condition_attributes.include?(attribute_name.to_s))) do %>
+                <%= Book.human_attribute_name(attribute_name) %>
+              <% end %>
             <% end %>
           </tr>
         </thead>
@@ -79,9 +145,9 @@
           <% @records.each do |record| %>
           <tr class="hover divide-x divide-gray-200">
             <% Book.ransortable_attributes.each do |attribute_name| %>
-            <td class="whitespace-nowrap px-2 py-2 text-sm text-gray-500">
-              <%= record.public_send(attribute_name) %>
-            </td>
+              <%= tag.td(class: class_names("px-2 py-2 text-sm text-gray-500", 'bg-orange-200': @search.sorts.map(&:attr_name).uniq.include?(attribute_name.to_s), 'bg-green-200': @search.condition_attributes.include?(attribute_name.to_s))) do %>
+                <%= record.public_send(attribute_name) %>
+              <% end %>
             <% end %>
           </tr>
           <% end %>
@@ -90,6 +156,12 @@
           <tr>
             <td colspan="<%= Book.ransortable_attributes.size %>">
               <div class="flex items-center justify-between p-2">
+                <div class="">
+                  <%= form_tag(search_books_path, method: :post) do %>
+                  <%= select_tag :page_items, options_for_select([10, 20, 50, 100], selected = params[:page_items]) %>
+                  <%= submit_tag("Update", class: "rounded-md border border-transparent bg-blue-500 px-2.5 py-1.5 font-medium text-gray-900") %>
+                  <% end %>
+                </div>
                 <div class="flex items-center justify-center">
                   <%# Note the double equals sign "==" which marks the output as trusted and html safe: %>
                   <%== pagy_nav(@pagy) %>
