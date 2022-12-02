@@ -118,6 +118,12 @@ GEM
     pagy (5.10.1)
       activesupport
     pg (1.4.5)
+    phlex (1.0.0.rc2)
+      zeitwerk (~> 2.6)
+    phlex-rails (0.3.1)
+      phlex (>= 1.0.0.rc1, < 2)
+      rails (>= 6.1, < 8)
+      zeitwerk (~> 2)
     propshaft (0.6.4)
       actionpack (>= 7.0.0)
       activesupport (>= 7.0.0)
@@ -195,6 +201,7 @@ DEPENDENCIES
   jsbundling-rails
   pagy (~> 5.10)
   pg (~> 1.1)
+  phlex-rails
   propshaft
   puma (~> 5.0)
   rails (~> 7.0.4)

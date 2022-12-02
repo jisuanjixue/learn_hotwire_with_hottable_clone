@@ -43,7 +43,7 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
 
 # Ransack will help you easily add searching to your Rails application, without any additional dependencies.[https://github.com/activerecord-hackery/ransack]
-gem "ransack", "~> 3.2" 
+gem "ransack", "~> 3.2"
 
 # the best pagination ruby gem [https://github.com/ddnexus/pagy]
 gem "pagy", "~> 5.10"
@@ -60,7 +60,7 @@ group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
   # Annotate Rails classes with schema and routes info[https://github.com/ctran/annotate_models]
-  gem "annotate", '~> 3.2.0'
+  gem "annotate", "~> 3.2.0"
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
@@ -69,3 +69,4 @@ group :development do
   # gem "spring"
 end
 
+gem "phlex-rails"
