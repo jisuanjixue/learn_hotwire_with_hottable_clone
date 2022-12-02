@@ -120,10 +120,6 @@ module Ransack
       default_fields - fields
     end
 
-    def batch_attribute
-      batch&.attr_name
-    end
-
     def condition_attributes
       groupings_attr_names = groupings.flat_map { |g| g.conditions.flat_map { |c| c.attributes.map(&:attr_name) } }
       conditions_attr_names = conditions.flat_map { |c| c.attributes.map(&:attr_name) }
@@ -135,7 +131,7 @@ module Ransack
     end
 
     def batch_attribute
-      batch.attr_name
+      batch&.attr_name
     end
 
     def recursive_compact(hash_or_array)
