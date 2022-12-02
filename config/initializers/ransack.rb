@@ -1,7 +1,7 @@
 module Ransack
   module Nodes
     class Batch < Sort
-      attr_accessor :expanded
+      attr_reader :expanded
 
       def build(params)
         params.with_indifferent_access.each do |key, value|
@@ -19,13 +19,13 @@ module Ransack
 
   class Search
     def build(params)
-      collapse_multiparameter_attributes!(params).each do |key, value|
-        if ["s".freeze, "sorts".freeze].freeze.include?(key)
-          send("#{key}=", value)
-        elsif ["f".freeze, "fields".freeze].freeze.include?(key)
-          send("#{key}=", value)
-        elsif ["b".freeze, "batch".freeze].freeze.include?(key)
-          send("#{key}=", value)
+      collapse_multiparameter_attributes!(recursive_compact(params)).each do |key, value|
+        if key == "s" || key == "sorts"
+          send(:sorts=, value)
+        elsif key == "f" || key == "fields"
+          send(:fields=, value)
+        elsif key == "b" || key == "batch"
+          send(:batch=, value)
         elsif @context.ransackable_scope?(key, @context.object)
           add_scope(key, value)
         elsif base.attribute_method?(key)
@@ -48,7 +48,7 @@ module Ransack
       end
     end
 
-    alias b= batch=
+    alias_method :b=, :batch=
 
     def batch
       @batch ||= nil
@@ -56,7 +56,7 @@ module Ransack
       @batch
     end
 
-    alias b batch
+    alias_method :b, :batch
 
     def build_batch(opts = {})
       new_batch(opts).tap do |batch|
@@ -92,7 +92,7 @@ module Ransack
       end
     end
 
-    alias f= fields=
+    alias_method :f=, :fields=
 
     def fields
       @fields ||= default_fields
@@ -100,7 +100,7 @@ module Ransack
       @fields
     end
 
-    alias f fields
+    alias_method :f, :fields
 
     def build_field(opts = {})
       new_field(opts).tap do |field|
@@ -136,6 +136,16 @@ module Ransack
 
     def batch_attribute
       batch.attr_name
+    end
+
+    def recursive_compact(hash_or_array)
+      p = proc do |*args|
+        v = args.last
+        v.delete_if(&p) if v.respond_to? :delete_if
+        v.nil? || v.respond_to?(:"empty?") && v.empty?
+      end
+
+      hash_or_array.delete_if(&p)
     end
   end
 end
