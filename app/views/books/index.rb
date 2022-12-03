@@ -23,11 +23,11 @@ module Views
       div class: "navbar col-span-1 shadow-lg xl:col-span-3 bg-neutral-focus text-neutral-content rounded-box" do
         div class: "flex-none" do
           button class: "btn btn-square btn-ghost" do
-            span { "HotTables" }
+            span { "HotTable" }
           end
         end
-        div class: "flex-none px-2 mx-2" do
-        end
+        # div class: "flex-none px-2 mx-2" do
+        # end
         div class: "flex justify-center flex-1 px-2 mx-2" do
           div class: "items-stretch hidden lg:flex" do
             a href: root_path do
@@ -62,117 +62,114 @@ module Views
               li do
                 a(tabindex: "0", data_action: " click->theme#switch", data_theme_value: "cupcake") { "🧁  cupcake" }
               end
-              
+
               li do
                 a(tabindex: "0", data_action: " click->theme#switch", data_theme_value: "bumblebee") { "🐝  bumblebee" }
               end
-              
+
               li do
                 a(tabindex: "0", data_action: " click->theme#switch", data_theme_value: "emerald") { "✳️  Emerald" }
               end
-              
+
               li do
                 a(tabindex: "0", data_action: " click->theme#switch", data_theme_value: "corporate") { "🏢  Corporate" }
               end
-              
+
               li do
                 a(tabindex: "0", data_action: " click->theme#switch", data_theme_value: "synthwave") { "🌃  synthwave" }
               end
-              
+
               li do
                 a(tabindex: "0", data_action: " click->theme#switch", data_theme_value: "retro") { "👴  retro" }
               end
-              
+
               li do
                 a(tabindex: "0", data_action: " click->theme#switch", data_theme_value: "cyberpunk") { "🤖  cyberpunk" }
               end
-              
+
               li do
                 a(tabindex: "0", data_action: " click->theme#switch", data_theme_value: "valentine") { "🌸  valentine" }
               end
-              
+
               li do
                 a(tabindex: "0", data_action: " click->theme#switch", data_theme_value: "halloween") { "🎃  halloween" }
               end
-              
+
               li do
                 a(tabindex: "0", data_action: " click->theme#switch", data_theme_value: "garden") { "🌷  garden" }
               end
-              
+
               li do
                 a(tabindex: "0", data_action: " click->theme#switch", data_theme_value: "forest") { "🌲  forest" }
               end
-              
+
               li do
                 a(tabindex: "0", data_action: " click->theme#switch", data_theme_value: "aqua") { "🐟  aqua" }
               end
-              
+
               li do
                 a(tabindex: "0", data_action: " click->theme#switch", data_theme_value: "lofi") { "👓  lofi" }
               end
-              
+
               li do
                 a(tabindex: "0", data_action: " click->theme#switch", data_theme_value: "pastel") { "🖍  pastel" }
               end
-              
+
               li do
                 a(tabindex: "0", data_action: " click->theme#switch", data_theme_value: "fantasy") { "🧚‍♀️  fantasy" }
               end
-              
+
               li do
                 a(tabindex: "0", data_action: " click->theme#switch", data_theme_value: "wireframe") { "📝  Wireframe" }
               end
-              
+
               li do
                 a(tabindex: "0", data_action: " click->theme#switch", data_theme_value: "black") { "🏴  black" }
               end
-              
+
               li do
                 a(tabindex: "0", data_action: " click->theme#switch", data_theme_value: "luxury") { "💎  luxury" }
               end
-              
+
               li do
                 a(tabindex: "0", data_action: " click->theme#switch", data_theme_value: "dracula") { "🧛‍♂️  dracula" }
               end
-              
+
               li do
                 a(tabindex: "0", data_action: " click->theme#switch", data_theme_value: "cmyk") { "🖨  CMYK" }
               end
-              
+
               li do
                 a(tabindex: "0", data_action: " click->theme#switch", data_theme_value: "autumn") { "🍁  Autum" }
               end
-              
+
               li do
                 a(tabindex: "0", data_action: " click->theme#switch", data_theme_value: "business") { "💼  Busines" }
               end
-              
+
               li do
                 a(tabindex: "0", data_action: " click->theme#switch", data_theme_value: "acid") { "💊  Acid" }
               end
-              
+
               li do
                 a(tabindex: "0", data_action: " click->theme#switch", data_theme_value: "lemonade") { "🍋  Lemonade" }
               end
-              
+
               li do
                 a(tabindex: "0", data_action: " click->theme#switch", data_theme_value: "night") { "🌙  Night" }
               end
-              
+
               li do
                 a(tabindex: "0", data_action: " click->theme#switch", data_theme_value: "coffee") { "️☕️  Coffee" }
               end
-          
+
               li do
                 a(tabindex: "0", data_action: " click->theme#switch", data_theme_value: "winter") { "️❄️  Winter" }
               end
-              
             end
           end
         end
       end
     end
-
-    
   end
 end

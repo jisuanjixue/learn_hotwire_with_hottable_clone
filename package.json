@@ -17,6 +17,7 @@
     "build:css": "tailwindcss -i ./app/assets/stylesheets/application.tailwind.css -o ./app/assets/builds/application.css --minify"
   },
   "devDependencies": {
+    "chokidar": "^3.5.3",
     "esbuild-rails": "^1.0.3"
   }
 }
