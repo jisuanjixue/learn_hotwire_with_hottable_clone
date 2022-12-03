@@ -3,7 +3,8 @@
 // ./bin/rails generate stimulus controllerName
 
 import { application } from "./application"
+import controllers from "./**/*_controller.js"
 
-import ThemeController from "./theme_controller"
-
-application.register("theme", ThemeController)
+controllers.forEach((controller) => {
+  application.register(controller.name, controller.module.default)
+})

@@ -2,6 +2,8 @@
 
 module Views
   module ApplicationView
-    include Rails.application.routes.url_helpers
+    include Propshaft::Helper
+    include Phlex::Rails::Layout
+    include ActionView::Helpers::AssetTagHelper
   end
 end

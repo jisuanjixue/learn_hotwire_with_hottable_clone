@@ -4,7 +4,8 @@ module.exports = {
     './app/views/**/*.{slim,erb,jbuilder,turbo_stream,js}',
     './app/helpers/**/*.rb',
     './app/assets/stylesheets/**/*.css',
-    './app/javascript/**/*.js'
+    './app/javascript/**/*.js',
+    './app/components/**/*.rb'
   ],
   variants: {
     extend: {

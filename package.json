@@ -4,9 +4,9 @@
   "dependencies": {
     "@hotwired/stimulus": "^3.1.1",
     "@hotwired/turbo-rails": "^7.2.4",
-    "autoprefixer": "^10.4.13",
-    "@tailwindcss/typography": "^0.5.4",
     "@tailwindcss/forms": "^0.5.3",
+    "@tailwindcss/typography": "^0.5.4",
+    "autoprefixer": "^10.4.13",
     "daisyui": "^2.42.0",
     "esbuild": "^0.15.15",
     "postcss": "^8.4.19",
@@ -17,6 +17,6 @@
     "build:css": "tailwindcss -i ./app/assets/stylesheets/application.tailwind.css -o ./app/assets/builds/application.css --minify"
   },
   "devDependencies": {
-    "chokidar": "^3.5.3"
+    "esbuild-rails": "^1.0.3"
   }
 }

@@ -1,9 +1,8 @@
 module Views
-  class Layout < Phlex::HTML
+  class Layout < ApplicationComponent
     include ApplicationView
-    include Phlex::Rails::Layout
 
-    def initialize(title:)
+    def initialize(title="HottableClone")
       @title = title
     end
 
@@ -17,7 +16,19 @@ module Views
           csrf_meta_tags
           meta name: "viewport", content: "width=device-width,initial-scale=1"
           title { @title }
-          stylesheet_link_tag "application"
+          link href: asset_path("favicon.ico"), rel: "icon", type: "image/x-icon"
+
+          link rel: "stylesheet",
+            href: "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
+          
+            link rel: "stylesheet",
+            href: stylesheet_path("application"),
+            data: { turbo_track: "reload" }
+
+          script type: "text/javascript",
+            src: javascript_path("application"),
+            data: { turbo_track: "reload" },
+            defer: "defer"
         end
 
         body do
