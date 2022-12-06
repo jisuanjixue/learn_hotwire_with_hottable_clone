@@ -160,11 +160,11 @@ module Views
               end
 
               li do
-                a(tabindex: "0", data_action: " click->theme#switch", data_theme_value: "coffee") { "️Coffee" }
+                a(tabindex: "0", data_action: " click->theme#switch", data_theme_value: "coffee") { "Coffee" }
               end
 
               li do
-                a(tabindex: "0", data_action: " click->theme#switch", data_theme_value: "winter") { "️Winter" }
+                a(tabindex: "0", data_action: " click->theme#switch", data_theme_value: "winter") { "Winter" }
               end
             end
           end
