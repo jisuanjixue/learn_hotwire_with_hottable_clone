@@ -4,7 +4,6 @@ class ApplicationComponent < Phlex::HTML
   include ActionView::Helpers::AssetUrlHelper
   include ActionView::RecordIdentifier
   include Rails.application.routes.url_helpers
-  include Phlex::Testing::Rails::ViewHelper
 
   delegate :request, to: :@_view_context
   delegate :params, to: :@_view_context

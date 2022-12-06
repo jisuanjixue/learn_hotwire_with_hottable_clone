@@ -19,10 +19,10 @@ require "action_cable/engine"
 Bundler.require(*Rails.groups)
 
 module HottableClone
-  class Application < Rails::Application
+    class Application < Rails::Application
+    config.load_defaults 7.0
     config.autoload_paths << "#{root}/app"
     # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 7.0
 
     # Configuration for the application, engines, and railties goes here.
     #

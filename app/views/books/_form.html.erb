@@ -1,0 +1,13 @@
+<%= search_form_for(
+    @search,
+    url: search_books_path,
+    html: { method: :post, autocomplete: :off, autocapitalize: :none, class: "", data: { controller: "details-set" } }
+  ) do |f| %>
+
+    <%= render "books/form/fields", f: %>
+    <%= render "books/form/sort", f: %>
+    <%= render "books/form/filter", f: %>
+    <%= render "books/form/batch", f: %>
+
+  <%= f.submit class: "cursor-pointer inline-flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:w-auto" %>
+  <% end %>

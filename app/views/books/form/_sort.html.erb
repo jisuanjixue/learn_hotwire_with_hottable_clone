@@ -1,0 +1,35 @@
+<div class="dropdown" id="detailsSort">
+    <label tabindex="0" class="btn btn-outline rounded-btn" id="detailsSortButton">
+      <i class="bi-arrow-down-up text-xl" aria-hidden="true"></i>
+      <% if f.object.sorts.any? %>
+      <span>Sorted by <%= pluralize(f.object.sorts.count, 'field') %></span>
+      <% else %>
+      <span>Sort</span>
+      <% end %>
+      <i class="bi-chevron-down text-gray-500 group-hover:text-gray-900" aria-hidden="true"></i>
+    </label>
+    <div tabindex="0"
+      class="dropdown-content card card-compact w-64 p-2 border-gray-300 bg-white  text-gray-700 shadow-sm hover:bg-gray-50 focus:ring-offset-gray-100">
+      <div
+        class="card-body absolute left-0 z-10 mt-1 min-w-96 origin-top-right rounded-md bg-white border-2 shadow-lg drop-shadow-lg focus:outline-none"
+        tabindex="-1">
+        <h3 class="card-title border-b mb-2 pb-1 font-bold px-2 py-1">Card title!</h3>
+        <%= tag.fieldset class: "p-2 pt-0 space-y-2" do %>
+        <% sort_object = f.object.sorts.any? ? f.object.sorts : f.object.build_sort %>
+        <%= f.sort_fields(sort_object) do |s| %>
+        <div class="fields flex items-center justify-start gap-2" data-object-name="<%= s.object_name %>">
+          <%= s.sort_select({}, class: "text-sm rounded p-1.5 pr-6 border-gray-400 bg-[right_0.125rem_center]") %>
+        </div>
+        <% end %>
+        <% end %>
+        <div class="flex items-center justify-end gap-2 py-2 px-4 bg-gray-200">
+          <button type="button"
+            class="inline-flex items-center rounded-md border border-transparent bg-gray-200 px-2.5 py-1.5 text-base font-medium text-gray-900 hover:bg-gray-300"
+            onclick="detailsSort.removeAttribute('open')">
+            Cancel
+          </button>
+          <%= f.submit "Sort", name: "sort", class: "cursor-pointer inline-flex items-center rounded-md border border-transparent bg-blue-500 px-2.5 py-1.5 text-base font-medium text-white shadow-sm hover:bg-blue-400" %>
+        </div>
+      </div>
+    </div>
+  </div>

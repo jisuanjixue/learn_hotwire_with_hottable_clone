@@ -12,6 +12,12 @@ module Views
         div class: "bg-base-200 text-base-content p-3" do
           headline
           div class: "mockup-window border border-base-300" do
+            div class: "shrink flex justify-between items-center flex-wrap bg-white p-2 min-h-16 border-b" do
+              render "books/form", search: @search
+            end
+          end
+          div class: "flex justify-center px-4 py-16 border-t border-base-300" do
+            render Views::Table.new(@records, result: @result, search: @search, pagy: @pagy)
           end
         end
       end
