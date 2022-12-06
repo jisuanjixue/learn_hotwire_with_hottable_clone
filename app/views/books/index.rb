@@ -54,117 +54,117 @@ module Views
           div class: "mt-16 overflow-y-auto shadow-2xl top-px dropdown-content h-96 w-52 rounded-b-box bg-base-200 text-base-content" do
             ul class: "p-4 menu compact", data_controller: "theme" do
               li do
-                a(tabindex: "0", data_action: " click->theme#switch", data_theme_value: "light") { "🌝  light" }
+                a(tabindex: "0", data_action: " click->theme#switch", data_theme_value: "light") { "light" }
               end
               li do
-                a(tabindex: "0", data_action: " click->theme#switch", data_theme_value: "dark") { "🌚  dark" }
+                a(tabindex: "0", data_action: " click->theme#switch", data_theme_value: "dark") { "dark" }
               end
               li do
-                a(tabindex: "0", data_action: " click->theme#switch", data_theme_value: "cupcake") { "🧁  cupcake" }
-              end
-
-              li do
-                a(tabindex: "0", data_action: " click->theme#switch", data_theme_value: "bumblebee") { "🐝  bumblebee" }
+                a(tabindex: "0", data_action: " click->theme#switch", data_theme_value: "cupcake") { "cupcake" }
               end
 
               li do
-                a(tabindex: "0", data_action: " click->theme#switch", data_theme_value: "emerald") { "✳️  Emerald" }
+                a(tabindex: "0", data_action: " click->theme#switch", data_theme_value: "bumblebee") { "bumblebee" }
               end
 
               li do
-                a(tabindex: "0", data_action: " click->theme#switch", data_theme_value: "corporate") { "🏢  Corporate" }
+                a(tabindex: "0", data_action: " click->theme#switch", data_theme_value: "emerald") { "Emerald" }
               end
 
               li do
-                a(tabindex: "0", data_action: " click->theme#switch", data_theme_value: "synthwave") { "🌃  synthwave" }
+                a(tabindex: "0", data_action: " click->theme#switch", data_theme_value: "corporate") { "Corporate" }
               end
 
               li do
-                a(tabindex: "0", data_action: " click->theme#switch", data_theme_value: "retro") { "👴  retro" }
+                a(tabindex: "0", data_action: " click->theme#switch", data_theme_value: "synthwave") { "synthwave" }
               end
 
               li do
-                a(tabindex: "0", data_action: " click->theme#switch", data_theme_value: "cyberpunk") { "🤖  cyberpunk" }
+                a(tabindex: "0", data_action: " click->theme#switch", data_theme_value: "retro") { "retro" }
               end
 
               li do
-                a(tabindex: "0", data_action: " click->theme#switch", data_theme_value: "valentine") { "🌸  valentine" }
+                a(tabindex: "0", data_action: " click->theme#switch", data_theme_value: "cyberpunk") { "cyberpunk" }
               end
 
               li do
-                a(tabindex: "0", data_action: " click->theme#switch", data_theme_value: "halloween") { "🎃  halloween" }
+                a(tabindex: "0", data_action: " click->theme#switch", data_theme_value: "valentine") { "valentine" }
               end
 
               li do
-                a(tabindex: "0", data_action: " click->theme#switch", data_theme_value: "garden") { "🌷  garden" }
+                a(tabindex: "0", data_action: " click->theme#switch", data_theme_value: "halloween") { "halloween" }
               end
 
               li do
-                a(tabindex: "0", data_action: " click->theme#switch", data_theme_value: "forest") { "🌲  forest" }
+                a(tabindex: "0", data_action: " click->theme#switch", data_theme_value: "garden") { "garden" }
               end
 
               li do
-                a(tabindex: "0", data_action: " click->theme#switch", data_theme_value: "aqua") { "🐟  aqua" }
+                a(tabindex: "0", data_action: " click->theme#switch", data_theme_value: "forest") { "forest" }
               end
 
               li do
-                a(tabindex: "0", data_action: " click->theme#switch", data_theme_value: "lofi") { "👓  lofi" }
+                a(tabindex: "0", data_action: " click->theme#switch", data_theme_value: "aqua") { "aqua" }
               end
 
               li do
-                a(tabindex: "0", data_action: " click->theme#switch", data_theme_value: "pastel") { "🖍  pastel" }
+                a(tabindex: "0", data_action: " click->theme#switch", data_theme_value: "lofi") { "lofi" }
               end
 
               li do
-                a(tabindex: "0", data_action: " click->theme#switch", data_theme_value: "fantasy") { "🧚‍♀️  fantasy" }
+                a(tabindex: "0", data_action: " click->theme#switch", data_theme_value: "pastel") { "pastel" }
               end
 
               li do
-                a(tabindex: "0", data_action: " click->theme#switch", data_theme_value: "wireframe") { "📝  Wireframe" }
+                a(tabindex: "0", data_action: " click->theme#switch", data_theme_value: "fantasy") { "fantasy" }
               end
 
               li do
-                a(tabindex: "0", data_action: " click->theme#switch", data_theme_value: "black") { "🏴  black" }
+                a(tabindex: "0", data_action: " click->theme#switch", data_theme_value: "wireframe") { "Wireframe" }
               end
 
               li do
-                a(tabindex: "0", data_action: " click->theme#switch", data_theme_value: "luxury") { "💎  luxury" }
+                a(tabindex: "0", data_action: " click->theme#switch", data_theme_value: "black") { "black" }
               end
 
               li do
-                a(tabindex: "0", data_action: " click->theme#switch", data_theme_value: "dracula") { "🧛‍♂️  dracula" }
+                a(tabindex: "0", data_action: " click->theme#switch", data_theme_value: "luxury") { "luxury" }
               end
 
               li do
-                a(tabindex: "0", data_action: " click->theme#switch", data_theme_value: "cmyk") { "🖨  CMYK" }
+                a(tabindex: "0", data_action: " click->theme#switch", data_theme_value: "dracula") { "dracula" }
               end
 
               li do
-                a(tabindex: "0", data_action: " click->theme#switch", data_theme_value: "autumn") { "🍁  Autum" }
+                a(tabindex: "0", data_action: " click->theme#switch", data_theme_value: "cmyk") { "CMYK" }
               end
 
               li do
-                a(tabindex: "0", data_action: " click->theme#switch", data_theme_value: "business") { "💼  Busines" }
+                a(tabindex: "0", data_action: " click->theme#switch", data_theme_value: "autumn") { "Autum" }
               end
 
               li do
-                a(tabindex: "0", data_action: " click->theme#switch", data_theme_value: "acid") { "💊  Acid" }
+                a(tabindex: "0", data_action: " click->theme#switch", data_theme_value: "business") { "Busines" }
               end
 
               li do
-                a(tabindex: "0", data_action: " click->theme#switch", data_theme_value: "lemonade") { "🍋  Lemonade" }
+                a(tabindex: "0", data_action: " click->theme#switch", data_theme_value: "acid") { "Acid" }
               end
 
               li do
-                a(tabindex: "0", data_action: " click->theme#switch", data_theme_value: "night") { "🌙  Night" }
+                a(tabindex: "0", data_action: " click->theme#switch", data_theme_value: "lemonade") { "Lemonade" }
               end
 
               li do
-                a(tabindex: "0", data_action: " click->theme#switch", data_theme_value: "coffee") { "️☕️  Coffee" }
+                a(tabindex: "0", data_action: " click->theme#switch", data_theme_value: "night") { "Night" }
               end
 
               li do
-                a(tabindex: "0", data_action: " click->theme#switch", data_theme_value: "winter") { "️❄️  Winter" }
+                a(tabindex: "0", data_action: " click->theme#switch", data_theme_value: "coffee") { "️Coffee" }
+              end
+
+              li do
+                a(tabindex: "0", data_action: " click->theme#switch", data_theme_value: "winter") { "️Winter" }
               end
             end
           end
