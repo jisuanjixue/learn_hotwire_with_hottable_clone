@@ -15,6 +15,7 @@ module Views
                         "Main View"
                     end
                 end
+                render Views::Table::Head.new(search: @search)
             end
         end
     end
