@@ -12,7 +12,7 @@ module Ransack
       end
 
       def expanded=(value)
-        @expanded = value == "true" ? true : false
+        @expanded = value == 'true' ? true : false
       end
     end
   end
@@ -20,11 +20,13 @@ module Ransack
   class Search
     def build(params)
       collapse_multiparameter_attributes!(recursive_compact(params)).each do |key, value|
-        if key == "s" || key == "sorts"
+        if key == 's' || key == 'sorts'
           send(:sorts=, value)
-        elsif key == "f" || key == "fields"
+        elsif key == 'f' || key == 'fields'
           send(:fields=, value)
-        elsif key == "b" || key == "batch"
+        elsif key == 'b' || key == 'batch'
+          next if value["name"].blank? && value["dir"].blank?
+
           send(:batch=, value)
         elsif @context.ransackable_scope?(key, @context.object)
           add_scope(key, value)
@@ -47,7 +49,6 @@ module Ransack
         @batch = args
       end
     end
-
     alias_method :b=, :batch=
 
     def batch
@@ -55,7 +56,6 @@ module Ransack
 
       @batch
     end
-
     alias_method :b, :batch
 
     def build_batch(opts = {})
@@ -78,20 +78,20 @@ module Ransack
 
     def fields=(args)
       @fields ||= default_fields
+      @fields = [] if args == []
 
       args.each do |field|
         case field
         when Hash
-          field = Nodes::Attribute.new(@context, field["name"])
+          field = Nodes::Attribute.new(@context, field['name'])
         when String
-          next if field == ""
+          next if field == ''
           field = Nodes::Attribute.new(@context, field)
         end
 
         fields << field
       end
     end
-
     alias_method :f=, :fields=
 
     def fields
@@ -99,7 +99,6 @@ module Ransack
 
       @fields
     end
-
     alias_method :f, :fields
 
     def build_field(opts = {})
@@ -112,14 +111,6 @@ module Ransack
       Nodes::Attribute.new(@context, opts)
     end
 
-    def field_attributes
-      fields.map(&:name).uniq
-    end
-
-    def hidden_fields
-      default_fields - fields
-    end
-
     def condition_attributes
       groupings_attr_names = groupings.flat_map { |g| g.conditions.flat_map { |c| c.attributes.map(&:attr_name) } }
       conditions_attr_names = conditions.flat_map { |c| c.attributes.map(&:attr_name) }
@@ -128,6 +119,14 @@ module Ransack
 
     def sort_attributes
       sorts.map(&:attr_name).uniq
+    end
+
+    def field_attributes
+      fields.map(&:name).uniq
+    end
+
+    def hidden_fields
+      default_fields - fields
     end
 
     def batch_attribute

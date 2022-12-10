@@ -19,13 +19,7 @@ module Views
         render Views::Table::Head.new(search: @search)
         tbody class: "divide-y divide-gray-200 bg-white" do
           @records.each do |record|
-            tr class: "hover divide-x divide-gray-200" do
-              Book.ransortable_attributes.each do |attribute_name|
-                td class: "px-2 py-2 text-sm text-gray-500 bg-orange-200" do
-                  record.public_send(attribute_name)
-                end
-              end
-            end
+            render Views::Table::Row.new(record, search: @search)
           end
         end
       end

@@ -8,8 +8,8 @@ module Views
             def template
                 thead class: "bg-gray-50" do
                     tr class: "divide-x divide-gray-200" do 
-                        attributes.each do |attribute| 
-                            render Header.new(attribute,search:@search)
+                        @search.field_attributes.each do |attribute| 
+                            render Header.new(attribute, search:@search)
                         end
                     end
                 end
@@ -17,7 +17,7 @@ module Views
 
             private
 
-            def attributes = Book.ransortable_attributes
+            # def attributes =  @search.field_attributes
         end
     end
 end
