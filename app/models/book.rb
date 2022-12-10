@@ -4,7 +4,7 @@ class Book < ApplicationRecord
 
     # to sorting book by model attributes 
     def self.ransortable_attributes(_auth_object = nil)
-        column_names - ['created_at', 'updated_at']
+        column_names - ['id','created_at', 'updated_at']
     end
 
     # to search book by model attributes
