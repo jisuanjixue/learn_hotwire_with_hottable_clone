@@ -1,6 +1,6 @@
 module Views
     class Table 
-        class Table < ApplicationComponent
+        class Head < ApplicationComponent
             def initialize(search:)
                 @search = search
             end

@@ -1,10 +1,10 @@
 module Views
   class Books::Index < ApplicationComponent
-    def initialize(records:, search:, pagy:, result:)
+    def initialize(records:, result:, search:, pagy:)
       @records = records
+      @result = result
       @search = search
       @pagy = pagy
-      @result = result
     end
 
     def template
