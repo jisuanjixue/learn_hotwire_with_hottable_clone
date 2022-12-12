@@ -9,7 +9,7 @@ module Views
       def template
         tr class: "hover divide-x divide-gray-200 has-checked:bg-blue-100" do
           attributes.each do |attribute|
-            # render Column.new(@record, attribute:, search: @search)
+            render Column.new(@record, attribute:, search: @search)
           end
         end
       end

@@ -8,10 +8,11 @@ module Views
         end
   
         def template
-          td @record.public_send(@attribute).to_s,
-            **classes("px-2 py-2 text-sm text-gray-500",
-              filtered?: "bg-green-200",
-              sorted?: "bg-orange-200")
+          td(**classes("px-2 py-2 text-sm text-gray-500",
+                filtered?: "bg-green-200",
+                sorted?: "bg-orange-200")) do
+                  @record.public_send(@attribute).to_s
+                end
         end
   
         private

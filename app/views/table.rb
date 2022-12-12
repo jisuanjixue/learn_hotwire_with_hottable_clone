@@ -15,15 +15,15 @@ module Views
             end
             "Main View"
           end
-        end
-        render Views::Table::Head.new(search: @search)
-        tbody class: "divide-y divide-gray-200 bg-white" do
-          @records.each do |record|
-            render Views::Table::Row.new(record, search: @search)
+          render Views::Table::Head.new(search: @search)
+          tbody class: "divide-y divide-gray-200 bg-white" do
+            @records.each do |record|
+              render Views::Table::Row.new(record, search: @search)
+            end
           end
+          render Views::Table::Footer.new(@search, pagy: @pagy)
         end
       end
-      render Views::Table::Footer.new(@search, pagy: @pagy)
     end
   end
 end
