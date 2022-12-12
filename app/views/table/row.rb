@@ -7,7 +7,8 @@ module Views
       end
 
       def template
-        tr class: "hover divide-x divide-gray-200 has-checked:bg-blue-100" do
+        tr class: "hover divide-x divide-gray-200 row-group has-checked:bg-blue-100" do
+          select_cell
           attributes.each do |attribute|
             render Column.new(@record, attribute:, search: @search)
           end
@@ -19,6 +20,15 @@ module Views
       def attributes
         @search.field_attributes
       end
+
+      def select_cell 
+        td class: "text-center relative" do
+          # input type: "checkbox", id: select_identifier, checked: "checked", class: "hidden [.row-group:hover_&]:inline-block checkbox checkbox-warning" do
+
+          # end
+        end
+      end
+      
     end
   end
 end
