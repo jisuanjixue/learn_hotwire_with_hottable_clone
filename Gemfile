@@ -48,7 +48,7 @@ gem "ransack", "~> 3.2"
 # the best pagination ruby gem [https://github.com/ddnexus/pagy]
 gem "pagy", "~> 5.10"
 
-gem "phlex-rails", "~> 0.3.1"
+gem "phlex-rails", "~> 0.3.2"
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
