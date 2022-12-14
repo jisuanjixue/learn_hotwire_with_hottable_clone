@@ -50,6 +50,9 @@ gem "pagy", "~> 5.10"
 
 gem "phlex-rails", "~> 0.3.2"
 
+# Power-pack for Turbo-Streams
+gem "turbo_power", "~> 0.1.2"
+
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
